@@ -5,22 +5,39 @@
   <title>RohanFitPro - Elite Fitness Coaching</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    /* Base dark style */
+    :root {
+      --bg-main: #181d24;
+      --bg-alt: #232832;
+      --bg-footer: #14171d;
+      --card-bg: #232832f5;
+      --primary-accent: #70b7c4;
+      --secondary-accent: #8278ad;
+      --cta-color: #436e87;
+      --cta-hover: #70b7c4;
+      --heading: #b3bed7;
+      --highlight: #a7e6ce;
+      --text-main: #e3e7ef;
+      --text-muted: #b1bac7;
+      --border-light: #2d3240;
+      --shadow: 0 2px 44px #161b24aa;
+      --shadow-card: 0 2px 22px #383a4144;
+    }
     body {
       margin: 0;
-      background: #11131a;
       font-family: 'Montserrat', Arial, sans-serif;
-      color: #fff;
+      background: var(--bg-main);
+      color: var(--text-main);
       overflow-x: hidden;
+      font-size: 1rem;
     }
     h1, h2, h3 {
-      color: #ffe662;
+      color: var(--heading);
       font-weight: 800;
       letter-spacing: 1px;
-      text-shadow: 0 4px 16px #222, 0 1px 12px #fff9;
+      text-shadow: none;
     }
     h1 {
-      font-size: 3rem;
+      font-size: 2.7rem;
       margin: 0.5em 0 0.2em 0;
     }
     h2 {
@@ -28,115 +45,110 @@
       margin-bottom: 0.5em;
     }
     h3 {
-      font-size: 1.1rem;
-      color: #48eaff;
-      margin-top: 1em;
+      font-size: 1.13rem;
+      color: var(--secondary-accent);
+      margin-top: 1.2em;
     }
-    p, li {
-      color: #fff;
+    p, li, .text-muted {
+      color: var(--text-muted);
       font-size: 1rem;
       margin-bottom: 1em;
       letter-spacing: 0.01em;
     }
-    a, button {
-      font-family: inherit;
-      font-size: inherit;
-    }
     .highlight {
-      color: #48eaff;
+      color: var(--highlight);
       font-weight: 600;
     }
     section {
-      padding: 4vw 10vw 4vw 10vw;
+      padding: 3vw 8vw 3vw 8vw;
       max-width: 1200px;
       margin: auto;
       box-sizing: border-box;
     }
-    /* Hero Section */
+    /* HERO */
     .hero {
       text-align: center;
-      background: linear-gradient(145deg, #23263c 60%, #262950 100%);
-      position: relative;
-      border-radius: 0 0 45px 45px;
-      box-shadow: 0 12px 30px #0009;
+      background: linear-gradient(135deg, var(--bg-alt) 70%, var(--bg-main) 100%);
+      border-radius: 0 0 40px 40px;
+      box-shadow: var(--shadow);
       overflow: hidden;
+      margin-bottom: 2.5em;
     }
-    .hero .coach3d {
+    .coach3d {
       margin: 2.5em auto 1em auto;
-      width: 180px;
-      height: 180px;
-      background: radial-gradient(circle at 60% 30%, #ffe66555 38%, #48eaff55 85%, transparent 95%);
+      width: 170px;
+      height: 170px;
+      background: radial-gradient(circle at 60% 35%, var(--primary-accent) 28%, var(--card-bg) 95%);
       border-radius: 50%;
       display: flex;
       align-items: center;
       justify-content: center;
       animation: float 3s ease-in-out infinite;
-      box-shadow: 0 0 40px #ffe66255, 0 6px 80px #48eaff11;
+      box-shadow: 0 0 34px var(--primary-accent)21, 0 2px 60px #0006;
     }
     @keyframes float {
-      0%, 100% { transform: translateY(0px);}
-      50% { transform: translateY(-16px);}
+      0%, 100% { transform: translateY(0);}
+      50% { transform: translateY(-13px);}
     }
     .coach3d img {
-      width: 120px;
-      height: 120px;
-      border-radius: 60px;
-      box-shadow: 0 2px 24px 4px #000a;
-      /* placeholder, use real 3D scene/avatar for prod */
+      width: 110px;
+      height: 110px;
+      border-radius: 55px;
+      box-shadow: 0 2px 18px 3px #181a2033;
     }
     .cta {
       display: inline-block;
-      padding: 20px 36px;
-      margin-top: 1.5em;
-      font-size: 1.4rem;
-      font-weight: 900;
-      background: linear-gradient(88deg, #ffe662, #48eaff 92%);
-      color: #090d15;
-      text-shadow: 0 1px 8px #ffffff99;
+      padding: 17px 34px;
+      margin-top: 1.2em;
+      font-size: 1.18rem;
+      font-weight: 800;
+      letter-spacing: 0.04em;
+      background: linear-gradient(88deg, var(--cta-color), var(--primary-accent) 98%);
+      color: var(--bg-main);
       border: none;
       border-radius: 999px;
-      box-shadow: 0 2px 20px #fff53260, 0 5px 40px #48eaff33;
+      box-shadow: 0 1px 16px var(--primary-accent)22, 0 2px 22px #0003;
       cursor: pointer;
-      position: relative;
-      transition: box-shadow 0.18s, transform 0.12s;
-      animation: pulse 2s infinite;
+      transition: box-shadow 0.16s, background 0.2s, transform 0.11s;
+      animation: ctaPulse 2.5s infinite;
     }
     .cta:hover {
-      box-shadow: 0 0px 28px #fff, 0 12px 64px #48eaffcc;
+      background: linear-gradient(88deg, var(--cta-hover), var(--secondary-accent));
+      color: var(--bg-footer);
       transform: scale(1.07) translateY(-2px);
     }
-    @keyframes pulse {
-      0%, 100% { box-shadow: 0 2px 20px #fff53260, 0 5px 40px #48eaff33;}
-      50% { box-shadow: 0 0px 50px #fff53299, 0 16px 88px #48eaff99;}
+    @keyframes ctaPulse {
+      0%, 100% { box-shadow: 0 1px 16px var(--primary-accent)22;}
+      50% { box-shadow: 0 1px 28px var(--primary-accent)77;}
     }
-    /* Onboarding Section */
+    /* ONBOARDING */
     .onboarding {
       margin-top: 2em;
-      background: #17192b;
-      border-radius: 35px;
+      background: var(--card-bg);
+      border-radius: 30px;
       padding: 2vw 3vw;
-      box-shadow: 0 6px 22px #0006;
+      box-shadow: var(--shadow-card);
       display: flex;
       align-items: flex-start;
       gap: 3vw;
       flex-wrap: wrap;
     }
     .progress3d {
-      flex: 0 0 130px;
+      flex: 0 0 110px;
       display: flex;
       flex-direction: column;
       align-items: center;
       margin: 10px 0 0 0;
     }
-    /* Mock 3D progress with SVG donut */
+    /* SVG donut progress (muted) */
     .progress3d svg {
-      width: 88px;
-      height: 88px;
-      margin-bottom: 0.8em;
-      filter: drop-shadow(0 0 16px #ffe662aa);
+      width: 74px;
+      height: 74px;
+      margin-bottom: 0.6em;
+      filter: drop-shadow(0 0 10px var(--primary-accent)33);
     }
     .onboarding-questions {
-      flex: 1 1 260px;
+      flex: 1 1 230px;
     }
     .animated-cards {
       display: flex;
@@ -144,100 +156,100 @@
       flex-wrap: wrap;
     }
     .question-card {
-      background: linear-gradient(135deg, #101223 80%, #48eaff11 100%);
-      padding: 1.6em 2.2em;
-      border-radius: 22px;
-      color: #fff;
+      background: linear-gradient(135deg, #1f232b 86%, var(--secondary-accent)12 92%);
+      padding: 1.4em 2em;
+      border-radius: 19px;
+      color: var(--text-main);
       font-weight: 600;
-      font-size: 1.09em;
+      font-size: 1.02em;
       margin-bottom: 12px;
-      box-shadow: 0 2px 18px #48eaff25;
+      box-shadow: 0 2px 10px #20234222;
       opacity: 0;
-      transform: translateY(32px) scale(0.95);
-      animation: cardIn 0.8s cubic-bezier(.28,1.7,.6,.95) forwards;
+      transform: translateY(28px) scale(0.96);
+      animation: cardIn 0.7s cubic-bezier(.44,1.35,.47,1) forwards;
     }
     .question-card:nth-child(1){ animation-delay: 0.08s;}
-    .question-card:nth-child(2){ animation-delay: 0.25s;}
-    .question-card:nth-child(3){ animation-delay: 0.42s;}
-    .question-card:nth-child(4){ animation-delay: 0.59s;}
+    .question-card:nth-child(2){ animation-delay: 0.23s;}
+    .question-card:nth-child(3){ animation-delay: 0.38s;}
+    .question-card:nth-child(4){ animation-delay: 0.53s;}
     @keyframes cardIn {
       to { opacity:1; transform: translateY(0) scale(1);}
     }
-    /* Plans Section */
+    /* PLANS */
     .plans3d {
-      background: #17192b;
-      padding: 2.5vw 2vw;
+      background: var(--card-bg);
+      padding: 2vw 2vw;
       margin-top: 2.5em;
-      border-radius: 36px;
+      border-radius: 30px;
       display: flex;
       align-items: flex-start;
       flex-wrap: wrap;
-      box-shadow: 0 8px 22px #48eaff11;
+      box-shadow: var(--shadow-card);
       gap: 3vw;
     }
     .plan-3d-cube {
-      background: linear-gradient(144deg, #48eaffaa 10%, #262950 65%);
-      width: 135px;
-      height: 135px;
-      border-radius: 22px;
-      margin-bottom: 1.3em;
+      background: linear-gradient(140deg, var(--secondary-accent) 23%, var(--bg-alt) 60%);
+      width: 116px;
+      height: 116px;
+      border-radius: 18px;
+      margin-bottom: 1.1em;
       display: flex;
       align-items: center;
       justify-content: center;
-      box-shadow: 0 4px 28px #48eaff55;
-      animation: spinCube 3s linear infinite;
+      box-shadow: 0 4px 22px #514f7055;
+      animation: spinCube 4.5s linear infinite;
     }
     @keyframes spinCube {
       from { transform: rotateY(0deg);}
       to { transform: rotateY(360deg);}
     }
     .plan-details {
-      flex: 1 1 320px;
+      flex: 1 1 295px;
       display: flex;
       flex-direction: column;
-      gap: 1.3em;
+      gap: 1.1em;
     }
     .plan-icons {
       display: flex;
-      gap: 2em;
-      margin-bottom: 1em;
+      gap: 1.6em;
+      margin-bottom: 0.5em;
     }
     .plan-icon {
-      background: #262950;
+      background: #24273a;
       border-radius: 50%;
-      width: 48px;
-      height: 48px;
+      width: 42px;
+      height: 42px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 2rem;
-      box-shadow: 0 2px 22px #48eaff22;
-      color: #ffe662;
+      font-size: 1.45rem;
+      box-shadow: 0 2px 8px var(--secondary-accent)14;
+      color: var(--highlight);
       animation: planIconPop 2s infinite alternate;
     }
-    .plan-icon:nth-child(2){ color: #48eaff;}
-    .plan-icon:nth-child(3){ color: #fff;}
+    .plan-icon:nth-child(2){ color: var(--primary-accent);}
+    .plan-icon:nth-child(3){ color: var(--heading);}
     @keyframes planIconPop {
       0% {transform: scale(1);}
-      100% {transform: scale(1.12);}
+      100% {transform: scale(1.08);}
     }
-    /* Meet Coach Section */
+    /* Meet Coach */
     .coach-section {
       display: flex;
       gap: 4vw;
       align-items: center;
-      background: #101223;
+      background: #1b1f27;
       padding: 2vw 3vw;
-      border-radius: 25px;
+      border-radius: 20px;
       margin-top: 3em;
-      box-shadow: 0 5px 18px #48eaff15;
+      box-shadow: var(--shadow-card);
       flex-wrap: wrap;
     }
     .coach-avatar-3d {
-      width: 120px;
-      height: 120px;
-      margin-right: 16px;
-      background: radial-gradient(circle at 80% 50%, #48eaff88 62%, transparent 100%);
+      width: 104px;
+      height: 104px;
+      margin-right: 13px;
+      background: radial-gradient(circle at 70% 55%, var(--primary-accent)24 62%, transparent 100%);
       border-radius: 50%;
       display: flex;
       align-items: center;
@@ -249,32 +261,33 @@
       to { transform: rotateZ(360deg);}
     }
     .coach-avatar-3d img {
-      width: 86px; height: 86px; border-radius: 43px;
-      box-shadow: 0 2px 14px 2px #fff2;
+      width: 72px; height: 72px; border-radius: 36px;
+      box-shadow: 0 2px 10px 1px #fff2;
     }
     .coach-bio {
       flex: 1 1 auto;
-      color: #fff;
     }
     .chat-btn {
-      padding: 12px 32px;
-      background: linear-gradient(84deg, #ffe662 60%, #48eaff 120%);
-      color: #181818;
+      padding: 11px 27px;
+      background: linear-gradient(84deg, var(--cta-color) 62%, var(--primary-accent) 128%);
+      color: var(--bg-main);
       border: none;
       border-radius: 999px;
       font-weight: 800;
-      font-size: 1.3rem;
-      box-shadow: 0 0px 30px #48eaff33;
+      font-size: 1.07rem;
+      box-shadow: 0 0px 22px var(--primary-accent)17;
       cursor: pointer;
-      margin-top: 1.3em;
-      animation: pulse 1.5s infinite;
-      transition: transform 0.12s;
+      margin-top: 1em;
+      animation: ctaPulse 2s infinite;
+      transition: transform 0.11s, background 0.12s;
     }
     .chat-btn:hover {
+      background: var(--cta-hover);
+      color: var(--bg-main);
       transform: scale(1.03);
-      box-shadow: 0 0 28px #48eaffcc;
+      box-shadow: 0 0 22px var(--secondary-accent)77;
     }
-    /* Testimonials Section */
+    /* Testimonials */
     .testimonials-section {
       margin-top: 3em;
       display: flex;
@@ -284,144 +297,186 @@
       align-items: flex-start;
     }
     .testimonial-card {
-      background: linear-gradient(120deg, #23263c 85%, #48eaff11 120%);
-      color: #fff;
-      border-radius: 18px;
-      padding: 2em 2em 1em 2em;
-      font-size: 1.11em;
-      width: 320px;
-      max-width: 92vw;
-      box-shadow: 0 2px 22px #48eaff26;
+      background: linear-gradient(120deg, var(--bg-alt) 89%, var(--secondary-accent)14 120%);
+      color: var(--text-main);
+      border-radius: 13px;
+      padding: 1.3em 1.3em 0.9em 1.3em;
+      font-size: 1em;
+      width: 280px;
+      max-width: 94vw;
+      box-shadow: 0 2px 14px #31204216;
       position: relative;
-      transition: transform 0.24s;
+      transition: transform 0.16s, background 0.13s;
       transform-style: preserve-3d;
-      min-height: 180px;
+      min-height: 110px;
       perspective: 1000px;
       cursor: pointer;
-      animation: rotateCardIn 1.5s cubic-bezier(.18,1.8,.56,.96) backwards;
+      animation: rotateCardIn 1.2s cubic-bezier(.18,1.3,.56,1) backwards;
     }
     .testimonial-card:hover {
-      transform: rotateY(12deg) scale(1.04);
-      background: linear-gradient(129deg, #48eaff44 30%, #23263c 92%);
-      box-shadow: 0 6px 36px #48eaff77;
+      transform: rotateY(7deg) scale(1.02);
+      background: linear-gradient(129deg, var(--primary-accent) 21%, var(--bg-alt) 95%);
+      box-shadow: 0 6px 24px #67bfd788;
     }
     @keyframes rotateCardIn {
-      0% { transform: rotateY(-18deg) scale(0.7);}
+      0% { transform: rotateY(-12deg) scale(0.82);}
       100% { transform: rotateY(0deg) scale(1);}
     }
     .testimonial-person {
       font-weight: 700;
-      color: #ffe662;
+      color: var(--highlight);
       display: block;
-      margin-top: 1.2em;
-      font-size: 1.07em;
+      margin-top: 1em;
+      font-size: 1em;
     }
     /* Features Table */
     table.features-table {
       width: 100%;
-      margin-top: 1.5em;
+      margin-top: 1.2em;
       border-collapse: separate;
       border-spacing: 0;
       background: none;
+      box-shadow: var(--shadow-card);
     }
     table.features-table th, table.features-table td {
-      background: #23263c;
-      padding: 1.15em 0.95em;
-      color: #fff;
-      border-bottom: 2px solid #23263c;
-      font-size: 1.05em;
+      background: var(--bg-alt);
+      padding: 1em 0.7em;
+      color: var(--text-muted);
+      border-bottom: 2px solid var(--border-light);
+      font-size: 1em;
       text-align: left;
-      box-shadow: 0 2px 10px #48eaff14;
     }
     table.features-table th {
-      color: #ffe662;
-      background: #17192b;
+      color: var(--heading);
+      background: var(--bg-main);
       font-weight: 800;
-      font-size: 1.09em;
+      font-size: 1.07em;
     }
     /* Call to action sticky */
     .sticky-cta {
       position: fixed;
-      bottom: 26px;
+      bottom: 22px;
       right: 50%;
       transform: translateX(50%);
       z-index: 99;
-      background: linear-gradient(90deg, #48eaff 16%, #ffe662 86%);
-      color: #272727;
-      padding: 18px 44px;
+      background: linear-gradient(93deg, var(--cta-color) 12%, var(--primary-accent) 91%);
+      color: var(--bg-main);
+      padding: 13px 36px;
       border-radius: 999px;
       font-weight: 900;
-      font-size: 1.24em;
-      box-shadow: 0 5px 40px #48eaffcc;
+      font-size: 1.11em;
+      box-shadow: 0 1px 28px var(--primary-accent)44;
       cursor: pointer;
-      animation: pulse 1.6s infinite;
-      border: 2px solid #101223;
-      transition: box-shadow 0.18s, transform 0.13s;
+      animation: ctaPulse 1.8s infinite;
+      border: none;
+      transition: box-shadow 0.13s, transform 0.1s;
     }
     .sticky-cta:hover {
-      box-shadow: 0 8px 98px #ffe66299;
+      box-shadow: 0 8px 39px var(--cta-hover)bb;
+      background: var(--cta-hover);
+      color: var(--bg-footer);
       transform: translateX(50%) scale(1.08);
     }
-    /* Shield Guarantee */
+    /* Guarantee shield */
     .guarantee {
       display: flex;
       align-items: center;
-      gap: 1.5em;
-      background: #262950;
-      padding: 1.2em 1.3em;
-      border-radius: 12px;
-      margin-top: 2.2em;
-      box-shadow: 0 1px 6px #ffe66240;
-      color: #ffe662;
+      gap: 1.3em;
+      background: var(--bg-alt);
+      padding: 1em 1.1em;
+      border-radius: 11px;
+      margin-top: 1.1em;
+      box-shadow: 0 1px 6px var(--secondary-accent)23;
+      color: var(--highlight);
       font-weight: 700;
-      font-size: 1.08em;
+      font-size: 1em;
     }
     .shield-3d {
-      width: 36px; height: 36px; min-width: 36px; min-height: 36px;
-      background: linear-gradient(133deg, #48eaff99 55%, #ffe662 100%);
-      border-radius: 18px;
+      width: 29px; height: 29px; min-width: 29px; min-height: 29px;
+      background: linear-gradient(133deg, var(--primary-accent) 37%, var(--secondary-accent) 100%);
+      border-radius: 14px;
       display: flex; align-items: center; justify-content: center;
-      animation: pulse 2.5s infinite;
+      animation: ctaPulse 2.2s infinite;
     }
-    /* Footer */
+    /* Footer and Layout additions */
     footer {
-      background: #101223;
-      color: #ffe662;
-      padding: 2em 8vw 4em 8vw;
-      text-align: center;
-      font-size: 1.1em;
-      border-top-left-radius: 32px;
-      border-top-right-radius: 32px;
-      box-shadow: 0 2px 44px #48eaff22 inset;
-      position: relative;
-      margin-top: 8em;
+      background: var(--bg-footer);
+      color: var(--text-muted);
+      padding: 2.6em 5vw 2.7em 5vw;
+      margin-top: 7em;
+      font-size: 1em;
+      border-top-left-radius: 24px;
+      border-top-right-radius: 24px;
+      box-shadow: 0 4px 40px #28294411 inset, 0 -1px 0 var(--primary-accent);
     }
-    .social-icons {
-      margin: 1.2em 0;
+    .footer-content {
       display: flex;
-      gap: 2em;
-      justify-content: center;
-      align-items: center;
+      gap: 4vw;
+      flex-wrap: wrap;
+      align-items: flex-start;
+      justify-content: space-between;
+      margin-bottom: 2em;
+      max-width: 1200px;
+      margin-left: auto; margin-right: auto;
     }
-    .social-icons svg {
-      width: 36px; height: 36px;
-      fill: #48eaff;
+    .footer-col {
+      min-width: 220px;
+      flex: 1 1 220px;
+      margin-bottom: 1.2em;
+    }
+    .footer-heading {
+      font-size: 1.08em;
+      color: var(--primary-accent);
+      font-weight: 800;
+      margin-bottom: 12px;
+      text-transform: uppercase;
+      letter-spacing: .08em;
+    }
+    .footer-logo {
+      font-weight: 900;
+      font-size: 1.4em;
+      color: var(--secondary-accent);
+      letter-spacing: 0.02em;
+      margin-bottom: 0.55em;
+      display: block;
+    }
+    .footer-links, .footer-contact, .footer-about { list-style: none; padding: 0; margin: 0;}
+    .footer-links li a {
+      color: var(--highlight);
+      text-decoration: none;
+      font-size: 0.97em;
+      transition: color .15s;
+    }
+    .footer-links li a:hover { color: var(--secondary-accent);}
+    .footer-social {
+      display: flex;
+      gap: 1.5em;
+      margin-top: 0.6em;
+    }
+    .footer-social svg {
+      width: 26px; height: 26px;
+      fill: var(--primary-accent);
       cursor: pointer;
-      transition: fill 0.19s, transform 0.16s;
-      filter: drop-shadow(0 0 8px #48eaff33);
+      transition: fill .15s, transform 0.13s;
+      filter: drop-shadow(0 0 4px var(--primary-accent)12);
     }
-    .social-icons svg:hover {
-      fill: #ffe662;
-      transform: scale(1.2);
-      filter: drop-shadow(0 0 18px #ffe66288);
+    .footer-social svg:hover { fill: var(--secondary-accent); transform:scale(1.13);}
+    .footer-address { font-size: 0.97em; color: var(--text-muted);}
+    .footer-copyright {
+      text-align: center;
+      color: var(--heading);
+      opacity: 0.91;
+      margin-bottom: -1.5em;
+      font-size: 0.96em;
     }
     /* Responsive */
-    @media (max-width: 750px){
+    @media (max-width: 780px){
       section { padding: 6vw 2vw; }
       .onboarding, .plans3d, .coach-section { flex-direction: column; align-items:stretch;}
       .coach-section { gap: 2vw;}
-      .plan-icons { gap: 1em;}
-      .hero .coach3d{ width:128px; height:128px;}
+      .plan-icons { gap: 0.9em;}
+      .hero .coach3d{ width:113px; height:113px;}
+      .footer-content { flex-direction: column; gap: 0; }
     }
   </style>
 </head>
@@ -433,7 +488,7 @@
       <img src="https://randomuser.me/api/portraits/men/1.jpg" alt="Coach Rohan 3D">
     </div>
     <h1>Unlock Your Best Self.<br>Train Smart. Live Boldly.</h1>
-    <p style="color:#fff;font-size:1.2em;max-width:500px;margin:auto;letter-spacing:0.02em;">
+    <p class="text-muted" style="font-size:1.17em;max-width:470px;margin:auto;letter-spacing:0.01em;">
       Personalized coaching, powerful transformation, exclusive community—all in one dynamic experience.
     </p>
     <button class="cta">Start Your Journey</button>
@@ -444,13 +499,13 @@
     <div class="progress3d">
       <!-- Mock 3D donut chart -->
       <svg viewBox="0 0 100 100">
-        <circle cx="50" cy="50" r="40" fill="none" stroke="#23263c" stroke-width="14"/>
-        <circle cx="50" cy="50" r="40" fill="none" stroke="#48eaff" stroke-width="14"
-        stroke-dasharray="251.2" stroke-dashoffset="80" />
-        <circle cx="50" cy="50" r="30" fill="#17192b"/>
-        <text x="50" y="56" text-anchor="middle" font-size="22" font-weight="bold" fill="#ffe662">68%</text>
+        <circle cx="50" cy="50" r="40" fill="none" stroke="#21242c" stroke-width="12"/>
+        <circle cx="50" cy="50" r="40" fill="none" stroke="#70b7c4" stroke-width="12"
+        stroke-dasharray="251.2" stroke-dashoffset="85" />
+        <circle cx="50" cy="50" r="30" fill="#181d24"/>
+        <text x="50" y="57" text-anchor="middle" font-size="18" font-weight="bold" fill="#a7e6ce">68%</text>
       </svg>
-      <span class="highlight">Your Progress</span>
+      <span class="highlight" style="margin-top:-4px;">Your Progress</span>
     </div>
     <div class="onboarding-questions">
       <div class="animated-cards">
@@ -465,10 +520,9 @@
   <!-- PLANS -->
   <section class="plans3d">
     <div class="plan-3d-cube" title="3D Plan Selector (mock)">
-      <!-- Mock 3d: add a cube svg, real 3D spinner with Three.js in prod -->
       <svg viewBox="0 0 100 100">
-        <rect x="25" y="25" width="50" height="50" rx="9" fill="#23263c" stroke="#48eaff" stroke-width="5"/>
-        <text x="50" y="58" text-anchor="middle" fill="#ffe662" font-size="20" font-weight="bold">PLAN</text>
+        <rect x="25" y="25" width="50" height="50" rx="8" fill="#21242c" stroke="#8278ad" stroke-width="4"/>
+        <text x="50" y="58" text-anchor="middle" fill="#70b7c4" font-size="18" font-weight="bold">PLAN</text>
       </svg>
     </div>
     <div class="plan-details">
@@ -489,7 +543,6 @@
   <!-- MEET YOUR COACH -->
   <section class="coach-section">
     <div class="coach-avatar-3d">
-      <!-- Placeholder for animated 3D portrait (swap with .glb/gltf/<canvas> for prod) -->
       <img src="https://randomuser.me/api/portraits/men/31.jpg" alt="Coach Rohan 3D Portrait">
     </div>
     <div class="coach-bio">
@@ -558,11 +611,10 @@
     </table>
     <div class="guarantee">
       <span class="shield-3d">
-        <!-- Simple SVG Shield -->
-        <svg viewBox="0 0 36 36"><path d="M18 2Q8 5 4 8q0 13 14 20 14-7 14-20Q28 5 18 2Z" fill="#262950" stroke="#ffe662" stroke-width="2"/>
-          <path d="M13 17l4 4 6-8" fill="none" stroke="#48eaff" stroke-width="2.5" stroke-linecap="round"/></svg>
+        <svg viewBox="0 0 36 36"><path d="M18 2Q8 5 4 8q0 13 14 20 14-7 14-20Q28 5 18 2Z" fill="#232832" stroke="#a7e6ce" stroke-width="2"/>
+          <path d="M13 17l4 4 6-8" fill="none" stroke="#70b7c4" stroke-width="2.2" stroke-linecap="round"/></svg>
       </span>
-      30-Day Money Back <span style="color:#fff">Guarantee</span>
+      30-Day Money Back <span style="color:var(--text-main)">Guarantee</span>
     </div>
   </section>
 
@@ -571,16 +623,48 @@
 
   <!-- FOOTER -->
   <footer>
-    <div class="social-icons">
-      <!-- Placeholder SVGs for social icons -->
-      <svg title="Instagram" viewBox="0 0 40 40"><circle cx="20" cy="20" r="15"/><circle cx="20" cy="20" r="7" fill="#23263c"/><circle cx="28" cy="13" r="2.2" fill="#ffe662"/></svg>
-      <svg title="Facebook" viewBox="0 0 40 40"><rect x="7" y="7" width="26" height="26" rx="7"/><rect x="19" y="13" width="4" height="14" rx="1" fill="#ffe662"/><rect x="15" y="19" width="13" height="4" rx="1" fill="#ffe662"/></svg>
-      <svg title="YouTube" viewBox="0 0 40 40"><rect x="7" y="13" width="26" height="14" rx="6"/><polygon points="18,17 27,20 18,23" fill="#ffe662"/></svg>
+    <div class="footer-content">
+      <div class="footer-col">
+        <span class="footer-logo">RohanFitPro</span>
+        <div class="footer-about">
+          Unlock better living through smarter, personalized coaching. Coach Rohan empowers you with science, passion, and community to transform your body and life.
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-heading">Quick Links</div>
+        <ul class="footer-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Plans</a></li>
+          <li><a href="#">Coach</a></li>
+          <li><a href="#">Testimonials</a></li>
+          <li><a href="#">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <div class="footer-heading">Contact Us</div>
+        <ul class="footer-contact">
+          <li>Email: <a href="mailto:rohan@fitpro.com" style="color:var(--primary-accent)">rohan@fitpro.com</a></li>
+          <li>Phone: <span style="color:var(--highlight)">+91-98765 43210</span></li>
+        </ul>
+        <div class="footer-heading" style="margin-top:1.2em;">Address</div>
+        <div class="footer-address">
+          RohanFitPro, 6th Floor, Wellness Tower,<br>
+          Main Street, Bengaluru, India - 560001
+        </div>
+      </div>
+      <div class="footer-col">
+        <div class="footer-heading">Follow Us</div>
+        <div class="footer-social">
+          <!-- Social SVGs (placeholders) -->
+          <a title="Instagram" href="#"><svg viewBox="0 0 40 40"><circle cx="20" cy="20" r="15"/><circle cx="20" cy="20" r="7" fill="#232832"/><circle cx="28" cy="13" r="2.2" fill="#a7e6ce"/></svg></a>
+          <a title="Facebook" href="#"><svg viewBox="0 0 40 40"><rect x="7" y="7" width="26" height="26" rx="7"/><rect x="19" y="13" width="4" height="14" rx="1" fill="#a7e6ce"/><rect x="15" y="19" width="13" height="4" rx="1" fill="#a7e6ce"/></svg></a>
+          <a title="YouTube" href="#"><svg viewBox="0 0 40 40"><rect x="7" y="13" width="26" height="14" rx="6"/><polygon points="18,17 27,20 18,23" fill="#a7e6ce"/></svg></a>
+        </div>
+      </div>
     </div>
-    <div>
-      <a href="mailto:rohan@fitpro.com" style="color:#48eaff;text-decoration:underline;">rohan@fitpro.com</a>
+    <div class="footer-copyright">
+      &copy; 2025 RohanFitPro. Designed for your transformation.
     </div>
-    <p style="color:#fff;padding-top:1.1em;opacity:0.8;">&copy; 2025 RohanFitPro. Powered by your transformation.</p>
   </footer>
 </body>
 </html>
